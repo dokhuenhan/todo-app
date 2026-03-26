@@ -9,7 +9,13 @@ const app = express();
 const PORT = 4000;
 const JWT_SECRET = process.env.JWT_SECRET || "todo-app-secret-key-2024";
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://todo-app-three-beta-66.vercel.app",
+  ],
+  credentials: true,
+}));
 app.use(express.json());
 
 // === Middleware xác thực ===
